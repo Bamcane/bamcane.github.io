@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="remakepower.png">
+    <meta charset="utf-8">
+    <title>RemakePower之家 - 列表查询</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+</body>
+    <h1>列表: (需要时间来加载~)</h1>
+    <div>
+        <table id="list" border="1">
+            <tr>
+                <td>服务器名</td>
+                <td>游戏模式</td>
+                <td>地图</td>
+                <td>人数</td>
+                <td>IP地址</td>
+                <td>服务器版本</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        (function() {
+            $.ajax({
+                url: "https://master1.ddnet.org/ddnet/15/servers.json",
+                type: "GET",
+                success: function (data) {
+                    var i;
+                    var html;
+                    var item;
+                    html = ''
+                    for (i = 0;i < data.servers.length;i ++)
+                    {
+                        item = data.servers[i].info.name;
+                        html += '<tr><td>' + item + '</td>';
+                        item = data.servers[i].info.game_type;
+                        html += '<td>' + item + '</td>';
+                        item = data.servers[i].info.map.name;
+                        html += '<td>' + item + '</td>';
+                        item = data.servers[i].info.clients.length + '/' + data.servers[i].info.max_clients;
+                        html += '<td>' + item + '</td>';
+                        item = data.servers[i].addresses[0];
+                        html += '<td>' + item + '</td>';
+                        item = data.servers[i].info.version;
+                        html += '<td>' + item + '</td></tr>';
+                    }
+                    document.getElementById("list").innerHTML += html
+                },
+                error: function() {
+                    document.getElementById("list").innerHTML += '<tr><td>Error</td></tr>'
+                }
+            })
+        })()
+    </script>
+</html>
