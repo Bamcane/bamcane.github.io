@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
     <link rel="shortcut icon" href="remakepower.png">
     <meta charset="utf-8">
     <title>RemakePower之家 - 列表查询</title>
@@ -8,7 +9,13 @@
 </head>
 <body>
 </body>
-    <h1>列表: (需要时间来加载~)</h1>
+    <div class="buttonlist">
+        <a class="button" href="index.html">主页</a>
+        <a class="button" href="list.html">列表</a>
+        <a class="button" href="DDNetPP.html">DDNet++教程</a>
+        <input type="button" class="button" onclick="javascript:location.reload();" value="刷新">
+    </div>
+
     <div>
         <table id="list" border="1">
             <tr>
@@ -30,6 +37,7 @@
                     var i;
                     var html;
                     var item;
+                    var addresses;
                     html = ''
                     for (i = 0;i < data.servers.length;i ++)
                     {
@@ -41,8 +49,8 @@
                         html += '<td>' + item + '</td>';
                         item = data.servers[i].info.clients.length + '/' + data.servers[i].info.max_clients;
                         html += '<td>' + item + '</td>';
-                        item = data.servers[i].addresses[0];
-                        html += '<td>' + item + '</td>';
+                        addresses = data.servers[i].addresses[0].substring(13);
+                        html += '<td>' + addresses + '</td>';
                         item = data.servers[i].info.version;
                         html += '<td>' + item + '</td></tr>';
                     }
