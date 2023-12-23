@@ -22,6 +22,6 @@ function AddPageList() {
     document.getElementById("body").innerHTML = PagesStr
 }
 
-function AddArticle(Article, Link) {
-    document.getElementById("articles").innerHTML += '<p><b><a class="articlelink" href="articles/' + Link + '">' + Article + '</a></b></p>'
+function AddArticle(Article, Time, Link) {
+    document.getElementById("articles").innerHTML += '<p><b><a class="articlelink" href="articles/' + Link + '">' + Article  + '  ' + Time + '</a></b></p>'
 }
