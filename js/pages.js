@@ -17,7 +17,7 @@ function AddPageList() {
 
     PagesStr += document.getElementById("body").innerHTML
     
-    PagesStr += '<p style="bottom: 0%; position:absolute; 100%;"><b><a href="https://github.com/Bamcane/bamcane.github.io">Open source in github</a></b></p>'
+    PagesStr += '<p style="bottom: 0%; position:fixed; 100%;"><b><a href="https://github.com/Bamcane/bamcane.github.io">Open source in github</a></b></p>'
 
     document.getElementById("body").innerHTML = PagesStr
 }
