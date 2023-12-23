@@ -14,14 +14,19 @@ h2 {
     text-align: center;
 }
 
+.articlelink {
+    color: orange;
+    text-align: center;
+    text-decoration: none;
+}
+
 .buttonlist {
-    display: flex;
     display: -webkit-flex;
+    margin-top: 0%;
 }
 
 .button {
     background-color: green;
-    color: white;
     border-style:solid;
     border-width:1px;
     border-bottom: 0px;
