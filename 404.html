@@ -2,12 +2,18 @@
 <html>
 <head>
     <script src="js/pages.js"></script>
-    <script>AddHead("主页")</script>
 </head>
 <body id="body">
     <h1>404</h1>
     <p class="warning">这里找不到任何有关的内容诶QwQ?</p>
 
-    <script>AddPageList()</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function()
+        {
+            AddHead("这里是哪里qw???");
+            AddPageList();
+            SetBaseHref();
+        })
+    </script>
 </body>
 </html>

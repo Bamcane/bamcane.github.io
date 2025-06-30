@@ -2,15 +2,23 @@
 <html>
 <head id="head">
     <script src="js/pages.js"></script>
-    <script>AddHead("主页")</script>
 </head>
 <body id="body">
-    <h1>甘箨的小窝耶qw!</h1>
-    <p style="text-align: center;"><img decoding="async" src="bamcane.png" alt="Bamcane" width="128" height="128"></p>
-    <p>C/C++使用者，Teeworlds/DDNet模组开发者，2D横版游戏爱好者，坚定的Teeworlds 0.7邪教徒</p>
-    <p class=""><a href="https://space.bilibili.com/431064862">B站个人主页</a></p>
-    <p><a href="https://afdian.com/@bamcane">爱发电个人主页</a></p>
+    <div class="align-center-text">
+        <h1>甘箨的小窝耶qw!</h1>
+        <p style="text-align: center;"><img decoding="async" src="images/bamcane.png" alt="Bamcane" width="128" height="128"></p>
+        <p>C/C++使用者，Teeworlds/DDNet模组开发者，2D横版游戏爱好者，坚定的Teeworlds 0.7邪教徒</p>
+        <p class=""><a href="https://space.bilibili.com/431064862">B站个人主页</a></p>
+        <p><a href="https://afdian.com/@bamcane">爱发电个人主页</a></p>
+    </div>
 
-    <script>AddPageList()</script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function()
+        {
+            AddHead("主页");
+            AddPageList();
+            SetBaseHref();
+        })
+    </script>
 </body>
 </html>

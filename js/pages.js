@@ -18,7 +18,7 @@ function AddHead(Page)
     // <link rel="shortcut icon">
     const linkIcon = document.createElement("link");
     linkIcon.rel = "shortcut icon";
-    linkIcon.href = "bamcane.png";
+    linkIcon.href = "images/bamcane.png";
     head.appendChild(linkIcon);
 
     // <meta charset>
@@ -61,9 +61,6 @@ function AddPageList()
     // 添加底部版权信息
     const footer = document.createElement("div");
     footer.className = "copyleft"
-    footer.style.position = "fixed";
-    footer.style.bottom = "0";
-    footer.style.width = "100%";
     footer.innerHTML = '<b> © 2023-2025 Bamcane <a href="https://github.com/Bamcane/bamcane.github.io" target="_blank">Open source in github</a></b>';
     body.appendChild(footer);
 }
@@ -72,20 +69,50 @@ function AddArticle(Article, Time, Link)
 {
     const container = document.getElementById("articles");
 
-    // 创建 <p> 元素
-    const p = document.createElement("p");
-
-    // 创建 <b> 元素
-    const b = document.createElement("b");
-
-    // 创建 <a> 元素
+    // 创建 <a> 元素作为整体卡片
     const a = document.createElement("a");
-    a.className = "articlelink";
+    a.className = "article-card";
     a.href = "reader.html?article=" + encodeURIComponent(Link);
-    a.textContent = Article + "  " + Time;
+
+    // 创建左侧的文章标题
+    const titleSpan = document.createElement("span");
+    titleSpan.className = "article-title";
+    titleSpan.textContent = Article;
+
+    // 创建右侧的时间
+    const timeSpan = document.createElement("span");
+    timeSpan.className = "article-time";
+    timeSpan.textContent = Time;
 
     // 组装结构
-    b.appendChild(a);
-    p.appendChild(b);
-    container.appendChild(p);
+    a.appendChild(titleSpan);
+    a.appendChild(timeSpan);
+
+    // 添加到容器中
+    container.appendChild(a);
+}
+
+// 懒得换就让AI写个这个awa
+function SetBaseHref()
+{
+    let baseUrl;
+    const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+    
+    if (isLocalhost)
+    {
+        baseUrl = "http://localhost:8080/";
+    } 
+    else
+    {
+        const repoUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/') + '/';
+        baseUrl = repoUrl;
+    }
+
+    let baseTag = document.querySelector('head base');
+    if (!baseTag)
+    {
+        baseTag = document.createElement('base');
+        document.head.appendChild(baseTag);
+    }
+    baseTag.href = baseUrl;
 }

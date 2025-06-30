@@ -2,13 +2,35 @@
 <html>
 <head id="head">
     <script src="js/pages.js"></script>
-    <script>AddHead("主页")</script>
 </head>
 <body id="body">
-    <h1>是文章集诶!</h1>
-    <div id="articles"></div>
-    <script>AddArticle("DDNet++教程", "2023-07-04", "DDNetPP")</script>
-    <script>AddArticle("Arch Linux安装后感受", "2023-12-23", "ArchLinux")</script>
-    <script>AddPageList()</script>
+    <h1 class="align-center-text">是文章集诶!</h1>
+    <div class="bordered-background">
+        <div id="articles" class="article-list"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function()
+        {
+            AddHead("文章集");
+            AddPageList();
+            SetBaseHref();
+
+            fetch('articles/index.json')
+                .then(response => {
+                    if (!response.ok) throw new Error("无法加载文章列表");
+                    return response.json();
+                })
+                .then(articles => {
+                    articles.forEach(article => {
+                        AddArticle(article.title, article.time, article.file);
+                    });
+                })
+                .catch(err => {
+                    console.error(err);
+                    document.getElementById("articles").innerHTML = `<p style="color:red;">加载文章失败: ${err.message}</p>`;
+                });
+        })
+    </script>
 </body>
 </html>

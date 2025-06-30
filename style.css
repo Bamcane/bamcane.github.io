@@ -1,23 +1,47 @@
-h1 {
-    text-align: center;
-    color: white;
-}
-
-h2 {
-    text-align: center;
-    color: white;
-}
-
 .warning {
     color: orange;
     font-weight: bold;
     text-align: center;
 }
+.article-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+    gap: 16px;
+    padding: 16px;
+}
 
-.articlelink {
-    color: orange;
-    text-align: center;
+.article-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-decoration: none;
+    color: white;
+    background-color: darkgrey;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 16px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.article-card:hover {
+    background-color: #f1f1f1;
+}
+
+.article-title {
+    font-size: 32px; /* 标题更大 */
+    font-weight: bold;
+    margin-bottom: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.article-time {
+    white-space: nowrap;
+    color: white;
+    font-size: 14px;
+    align-self: flex-end;
 }
 
 .buttonlist {
@@ -26,7 +50,31 @@ h2 {
 }
 
 .copyleft {
+    position: static;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
     color: grey;
+    font-size: 14px;
+    z-index: 1000;
+}
+
+.bordered-background {
+    background-color: black; /* 黑色背景 */
+    color: white; /* 文本颜色为白色 */
+    padding: 20px; /* 内边距 */
+    border: 2px solid white; /* 白色边框 */
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* 可选：阴影效果 */
+    margin: 20px auto; /* 上下外边距和水平居中 */
+    max-width: 75%; /* 最大宽度 */
+    width: 100%; /* 宽度占满容器 */
+}
+
+.align-center-text {
+    text-align: center;
 }
 
 .button {
@@ -49,29 +97,36 @@ body {
     background-color: black;
 }
 
+blockquote {
+    margin: 1em 0;
+    padding: 0 1em;
+    border-left: 4px solid #ddd; /* 左边引用条 */
+    background-color: rgba(27, 31, 35, 0.05); /* GitHub 式浅灰背景 */
+    color: darkgrey; /* 灰色文字 */
+    border-radius: 4px;
+    position: relative;
+}
+
+code {
+    font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+    font-size: 0.92em;
+    background-color: grey; /* 行内代码浅灰背景 */
+    color: white; /* GitHub 文字颜色 */
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+h1 {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
 a {
     color: darkgrey;
-    text-align: center;
     text-decoration: none;
-}
-
-p {
-    text-align: center;
-    color: white;
-}
-
-table {
-    width: 100%;
-    background-color: green;
-    border-collapse: collapse;
-    letter-spacing: 1px;
-}
-
-table, th, td {
-    word-break: break-all;
-    align-self: center;
-    text-align: center;
-    height: 32px;
-    padding: 1px;
-    color: white;
 }
