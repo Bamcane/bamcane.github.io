@@ -3,11 +3,6 @@ function AddHead(Page)
 {
     const head = document.getElementById("head");
 
-    // <base>
-    const base = document.createElement("base");
-    base.href = "http://localhost:8080/";
-    head.appendChild(base);
-
     // <link rel="stylesheet">
     const linkStyle = document.createElement("link");
     linkStyle.rel = "stylesheet";
@@ -95,7 +90,18 @@ function AddArticle(Article, Time, Link)
 // 懒得换就让AI写个这个awa
 function SetBaseHref()
 {
-    let baseUrl = "https://bamcane.teemidnight.online/";
+    let baseUrl;
+    const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
+    
+    if (isLocalhost)
+    {
+        baseUrl = "http://localhost:8080/";
+    } 
+    else
+    {
+        const repoUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/') + '/';
+        baseUrl = repoUrl;
+    }
 
     let baseTag = document.querySelector('head base');
     if (!baseTag)
