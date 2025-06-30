@@ -95,18 +95,7 @@ function AddArticle(Article, Time, Link)
 // 懒得换就让AI写个这个awa
 function SetBaseHref()
 {
-    let baseUrl;
-    const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-    
-    if (isLocalhost)
-    {
-        baseUrl = "http://localhost:8080/";
-    } 
-    else
-    {
-        const repoUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/') + '/';
-        baseUrl = repoUrl;
-    }
+    let baseUrl = "https://bamcane.teemidnight.online/";
 
     let baseTag = document.querySelector('head base');
     if (!baseTag)
