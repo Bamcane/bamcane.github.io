@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head id="head">
+    <script src="js/external/marked/lib/marked.umd.js"></script>
+    <script src="js/pages.js"></script>
+    <script>AddHead("主页")</script>
+</head>
+<body id="body">
+    <div id="markdown-content">加载中...</div>
+    <script>AddPageList()</script>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const articleName = urlParams.get('article');
+
+        console.log(articleName)
+        fetch(`articles/${articleName}.md`)
+        .then(response => {
+            if (!response.ok) throw new Error("加载失败QAQ?");
+            return response.text();
+        })
+        .then(text => {
+            document.getElementById("markdown-content").innerHTML = marked.parse(text);
+        })
+        .catch(err => {
+            document.getElementById("markdown-content").innerHTML = `<p class="warning">错误：${err.message}</p>`;
+        });
+    </script>
+</body>
+</html>
