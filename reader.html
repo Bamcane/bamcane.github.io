@@ -31,7 +31,7 @@
                     document.getElementById("markdown-content").innerHTML = marked.parse(text);
                 })
                 .catch(err => {
-                    document.getElementById("markdown-content").innerHTML = `<p style="color:red;">错误：${err.message}</p>`;
+                    document.getElementById("markdown-content").innerHTML = `<p style="color:orange;">错误：${err.message}</p>`;
                 });
         });
     </script>
