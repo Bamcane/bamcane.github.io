@@ -15,8 +15,8 @@
     flex-direction: column;
     justify-content: center;
     text-decoration: none;
-    color: white;
-    background-color: darkgrey;
+    color: rgb(221, 221, 221);
+    background-color: rgb(148, 148, 148);
     border-radius: 8px;
     border: 1px solid #ddd;
     padding: 16px;
@@ -25,7 +25,8 @@
 }
 
 .article-card:hover {
-    background-color: #f1f1f1;
+    background-color: rgb(180, 180, 180);
+    color: rgb(221, 221, 221);
 }
 
 .article-title {
@@ -39,7 +40,7 @@
 
 .article-time {
     white-space: nowrap;
-    color: white;
+    color: rgb(221, 221, 221);
     font-size: 14px;
     align-self: flex-end;
 }
@@ -63,7 +64,7 @@
 
 .bordered-background {
     background-color: rgb(23, 23, 37); /* 黑色背景 */
-    color: white; /* 文本颜色为白色 */
+    color: rgb(221, 221, 221); /* 文本颜色为白色 */
     padding: 20px; /* 内边距 */
     border: 2px solid white; /* 白色边框 */
     border-radius: 8px; /* 圆角 */
@@ -78,7 +79,7 @@
 }
 
 .button {
-    background-color: green;
+    background-color: rgb(19, 104, 19);
     border-style:solid;
     border-width:1px;
     border-bottom: 0px;
@@ -91,6 +92,10 @@
     -webkit-flex: 1;
     font-size: 16px;
     color: white;
+}
+
+.button:hover {
+    background-color: rgb(22, 134, 22);
 }
 
 body {
@@ -111,7 +116,7 @@ code {
     font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
     font-size: 0.92em;
     background-color: grey; /* 行内代码浅灰背景 */
-    color: white; /* GitHub 文字颜色 */
+    color: rgb(221, 221, 221); /* GitHub 文字颜色 */
     padding: 0.2em 0.4em;
     border-radius: 3px;
     white-space: pre-wrap;
@@ -119,14 +124,36 @@ code {
 }
 
 h1 {
-    color: white;
+    color: rgb(221, 221, 221);
 }
 
 h2 {
-    color: white;
+    color: rgb(221, 221, 221);
 }
 
 a {
-    color: darkgrey;
+    color: lightgrey;
     text-decoration: none;
+}
+
+a:hover {
+    color: rgb(221, 221, 221);
+    text-decoration: none;
+}
+
+p {
+    color: rgb(187, 187, 187);
+    text-decoration: none;
+}
+
+.compact-heading {
+  line-height: 0.8;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0.6em;
+}
+
+.compact-heading .date {
+  color: lightgrey;
+  line-height: 1;
 }
