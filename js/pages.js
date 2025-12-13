@@ -13,7 +13,7 @@ function AddHead(Page)
     // <link rel="shortcut icon">
     const linkIcon = document.createElement("link");
     linkIcon.rel = "shortcut icon";
-    linkIcon.href = "images/bamcane.png";
+    linkIcon.href = "https://avatars.githubusercontent.com/u/65482653";
     head.appendChild(linkIcon);
 
     // <meta charset>
