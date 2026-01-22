@@ -56,7 +56,7 @@ function AddPageList()
     // 添加底部版权信息
     const footer = document.createElement("div");
     footer.className = "copyleft"
-    footer.innerHTML = '<b> © 2023-2025 Bamcane <a href="https://github.com/Bamcane/bamcane.github.io" target="_blank">Open source in github</a></b>';
+    footer.innerHTML = '<b> © 2023-2026 Bamcane <a href="https://github.com/Bamcane/bamcane.github.io" target="_blank">Open source in github</a></b>';
     body.appendChild(footer);
 }
 
