@@ -3,23 +3,11 @@ function AddHead(Page)
 {
     const head = document.getElementById("head");
 
-    // <link rel="stylesheet">
-    const linkStyle = document.createElement("link");
-    linkStyle.rel = "stylesheet";
-    linkStyle.type = "text/css";
-    linkStyle.href = "style.css";
-    head.appendChild(linkStyle);
-
     // <link rel="shortcut icon">
     const linkIcon = document.createElement("link");
     linkIcon.rel = "shortcut icon";
     linkIcon.href = "https://avatars.githubusercontent.com/u/65482653";
     head.appendChild(linkIcon);
-
-    // <meta charset>
-    const metaCharset = document.createElement("meta");
-    metaCharset.charset = "utf-8";
-    head.appendChild(metaCharset);
 
     // <title>
     const title = document.createElement("title");
