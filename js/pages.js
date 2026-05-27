@@ -27,37 +27,17 @@ function AddHead(Page)
     head.appendChild(title);
 }
 
-function AddPageList()
+function AddCopyleft()
 {
     const body = document.getElementById("body");
 
-    // 创建按钮列表容器
-    const buttonList = document.createElement("div");
-    buttonList.className = "buttonlist";
-    buttonList.id = "headbutton";
-
-    // 主页链接
-    const homeLink = document.createElement("a");
-    homeLink.className = "button";
-    homeLink.href = "index.html";
-    homeLink.textContent = "主页";
-    buttonList.appendChild(homeLink);
-
-    // 文章页链接
-    const articleLink = document.createElement("a");
-    articleLink.className = "button";
-    articleLink.href = "articles.html";
-    articleLink.textContent = "文章";
-    buttonList.appendChild(articleLink);
+    // 添加版权信息
+    const copyleft = document.createElement("div");
+    copyleft.className = "copyleft"
+    copyleft.innerHTML = '<b> © 2023-2026 Bamcane <a href="https://github.com/Bamcane/bamcane.github.io" target="_blank">Open source in github</a></b>';
 
     // 插入到 body 最前面
-    body.insertBefore(buttonList, body.firstChild);
-
-    // 添加底部版权信息
-    const footer = document.createElement("div");
-    footer.className = "copyleft"
-    footer.innerHTML = '<b> © 2023-2026 Bamcane <a href="https://github.com/Bamcane/bamcane.github.io" target="_blank">Open source in github</a></b>';
-    body.appendChild(footer);
+    body.insertBefore(copyleft, body.firstChild);
 }
 
 function AddArticle(Article, Time, Link)
@@ -85,29 +65,4 @@ function AddArticle(Article, Time, Link)
 
     // 添加到容器中
     container.appendChild(a);
-}
-
-// 懒得换就让AI写个这个awa
-function SetBaseHref()
-{
-    let baseUrl;
-    const isLocalhost = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1";
-    
-    if (isLocalhost)
-    {
-        baseUrl = "http://localhost:8080/";
-    } 
-    else
-    {
-        const repoUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/') + '/';
-        baseUrl = repoUrl;
-    }
-
-    let baseTag = document.querySelector('head base');
-    if (!baseTag)
-    {
-        baseTag = document.createElement('base');
-        document.head.appendChild(baseTag);
-    }
-    baseTag.href = baseUrl;
 }

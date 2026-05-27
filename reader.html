@@ -6,12 +6,27 @@
 </head>
 <body id="body">
     <div id="markdown-content" class="bordered-background">加载中...</div>
+    <script src="https://giscus.app/client.js"
+        data-repo="Bamcane/bamcane.github.io"
+        data-repo-id="R_kgDOJeV3WQ"
+        data-category="Announcements"
+        data-category-id="DIC_kwDOJeV3Wc4C99fB"
+        data-mapping="url"
+        data-strict="0"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="dark"
+        data-lang="zh-CN"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+    </script>
+    <a class="back-button" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M5.82843 6.99955L8.36396 9.53509L6.94975 10.9493L2 5.99955L6.94975 1.0498L8.36396 2.46402L5.82843 4.99955H13C17.4183 4.99955 21 8.58127 21 12.9996C21 17.4178 17.4183 20.9996 13 20.9996H4V18.9996H13C16.3137 18.9996 19 16.3133 19 12.9996C19 9.68584 16.3137 6.99955 13 6.99955H5.82843Z"></path></svg></a>
     <script>
         document.addEventListener("DOMContentLoaded", function()
         {
-            AddHead("阅读中qw...");
-            AddPageList();
-            SetBaseHref();
+            AddCopyleft();
 
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
@@ -19,12 +34,14 @@
 
             if (!articleName) {
                 document.getElementById("markdown-content").innerHTML = "<p>未指定文章名称。</p>";
+                AddHead("阅读失败...");
                 return;
             }
 
             fetch(`articles/${articleName}`)
                 .then(response => {
-                    if (!response.ok) throw new Error("加载失败QAQ?");
+                    if (!response.ok) 
+                        throw new Error("加载失败QAQ?");
                     return response.text();
                 })
                 .then(text => {
@@ -49,16 +66,19 @@
                                     container.appendChild(time);
                                     document.getElementById("markdown-content").innerHTML = container.outerHTML;
                                     document.getElementById("markdown-content").innerHTML += marked.parse(text);
+                                    AddHead(article.title);
                                 }
                             });
                         })
                         .catch(err => {
                             console.error(err);
                             document.getElementById("articles").innerHTML = `<p style="color:orange;">错误：无法获取文章信息: ${err.message}</p>`;
+                            AddHead("阅读失败...");
                         });
                 })
                 .catch(err => {
                     document.getElementById("markdown-content").innerHTML = `<p style="color:orange;">错误：${err.message}</p>`;
+                    AddHead("阅读失败...");
                 });
         });
     </script>
